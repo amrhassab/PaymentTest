@@ -5,10 +5,19 @@ import {
     View,
     Button,
 } from 'react-native';
+import testData from './test-data.json';
+import type { THome, TTestData } from 'types'
+import sortAndGroup from './serializers'
 
-import type { THome } from 'types'
+console.log("test data", testData);
 
 function Home({ navigation }: THome): JSX.Element {
+
+    
+
+    console.log("test", sortAndGroup(testData as TTestData))
+
+
     return (
         <ScrollView
             contentInsetAdjustmentBehavior="automatic">
