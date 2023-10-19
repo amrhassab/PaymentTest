@@ -13,3 +13,9 @@ export const TRANSACTION_ORIGIN = {
     ATM_MACHINE: "ATM_MACHINE",
     PHONE_CALL: "PHONE_CALL",
 }
+
+export const DETAIL_PAGE_VARIANTS = {
+    DETAIL_1: "Detail1",
+    DETAIL_2: "Detail2",
+    ERROR: "Error",
+}

@@ -12,9 +12,10 @@ function Home({ objectId, status, details, timestamp, navigation }
     : JSX.Element {
 
     const theme = useTheme();
+    const { origin } = details;
+
 
     function TransactionIcon({ status, details }: Pick<TTestDataItem, 'status' | 'details'>): JSX.Element {
-        const { origin } = details;
         let icon = "phone";
 
         if (origin === TRANSACTION_ORIGIN.PHONE_CALL || origin === TRANSACTION_ORIGIN.MOBILE_APP) {
@@ -42,6 +43,16 @@ function Home({ objectId, status, details, timestamp, navigation }
         return <List.Icon color={theme.colors.blue} style={{ paddingLeft: 16 }} icon={icon} />
     }
 
+    const handlePress = () => {
+        if(status === TRANSACTION_STATUS.DECLINED || status === TRANSACTION_STATUS.CANCELLED) {
+            navigation.navigate('Error', { objectId, variant: 'Error' })
+        } else if (origin === TRANSACTION_ORIGIN.IN_PERSON || origin === TRANSACTION_ORIGIN.ATM_MACHINE) {
+            navigation.navigate('Detail1', { objectId, variant: 'Detail1' })
+        } else {
+            navigation.navigate('Detail2', { objectId, variant: 'Detail2' })
+        }
+    }
+
     return (
         <List.Item
             key={objectId}
@@ -56,6 +67,7 @@ function Home({ objectId, status, details, timestamp, navigation }
                     {`The transaction ${objectId} has been ${status} from ${details.origin}`}
                 </Text>}
             left={() => <TransactionIcon status={status} details={details} />}
+            onPress={handlePress}
         />
     );
 }

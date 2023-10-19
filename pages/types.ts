@@ -13,7 +13,9 @@ export type TStackParamList = {
 };
 
 export type THome = NativeStackScreenProps<TStackParamList, 'Home'>;
-export type TDetail = NativeStackScreenProps<TStackParamList, 'Detail1'>;
+export type TDetail1 = NativeStackScreenProps<TStackParamList, 'Detail1'>;
+export type TDetail2 = NativeStackScreenProps<TStackParamList, 'Detail2'>;
+export type TDetialError = NativeStackScreenProps<TStackParamList, 'Error'>;
 
 export type TTestDataItem = {
     objectType: 'TRANSACTION';
