@@ -5,7 +5,8 @@ import { PaperProvider } from 'react-native-paper';
 import type { TStackParamList } from '@pages/types'
 
 import Home from '@pages/Home';
-import Detail from '@pages/Detail'
+import Detail from '@pages/Detail';
+import Login from '@pages/Login';
 
 import theme from '@pages/theme'
 
@@ -16,7 +17,8 @@ function App(): JSX.Element {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="Login">
+          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Detail1" component={Detail} options={{ title: 'Details Screen 1' }} />
           <Stack.Screen name="Detail2" component={Detail} options={{ title: 'Details Screen 2' }} />

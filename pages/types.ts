@@ -6,12 +6,14 @@ type DetailComponent = {
 };
 
 export type TStackParamList = {
+    Login: undefined;
     Home: undefined;
     Detail1: DetailComponent;
     Detail2: DetailComponent;
     Error: DetailComponent;
 };
 
+export type TLogin = NativeStackScreenProps<TStackParamList, 'Login'>;
 export type THome = NativeStackScreenProps<TStackParamList, 'Home'>;
 export type TDetail1 = NativeStackScreenProps<TStackParamList, 'Detail1'>;
 export type TDetail2 = NativeStackScreenProps<TStackParamList, 'Detail2'>;
