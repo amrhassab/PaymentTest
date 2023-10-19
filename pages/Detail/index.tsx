@@ -28,7 +28,7 @@ function Detial({ route }: IDetial): JSX.Element {
 
 
     return (
-        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%' }}>
             <Text>{getMessage()}</Text>
         </View>
     );
