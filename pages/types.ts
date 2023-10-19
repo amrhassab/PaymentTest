@@ -30,4 +30,3 @@ export type TTestData = Array<TTestDataItem>;
 export interface Dictionary<T> {
     [key: string]: T;
 }
-  

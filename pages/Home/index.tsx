@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import {
-    ScrollView,
-    Text,
     View,
-    Button,
     FlatList
 } from 'react-native';
 import testData from './test-data.json';
-import type { THome, TTestData, TTestDataItem } from 'types';
+import type { THome, TTestData } from '@pages/types';
 import sortAndGroup from './serializers';
-import { List, MD3Colors } from 'react-native-paper';
+import TransactionListItem from './TransactionListItem';
+import { List, Divider } from 'react-native-paper';
+import styles from './style';
 
 
 function Home({ navigation }: THome): JSX.Element {
@@ -24,27 +23,20 @@ function Home({ navigation }: THome): JSX.Element {
         <View>
             {serializedData ? <FlatList
                 data={Array.from(serializedData.entries())}
-                renderItem={({item}) => {
+                renderItem={({ item }) => {
                     const [title, entries] = item;
                     return (
-                        <List.Section key={title}>
+                        <List.Section
+                         key={title}>
                             <List.Subheader>{title}</List.Subheader>
                             {
                                 entries?.map(entry => {
-                                    const {
-                                        status,
-                                        details: { origin },
-                                        objectId,
-                                        timestamp,
-                                        objectType } = entry;
+                                    const { objectId } = entry;
                                     return (
-                                        <List.Item
-                                            key={objectId}
-                                            title={() =>
-                                                <Text>{`The transaction ${objectId} has been ${status} from ${origin}`}</Text>}
-                                            left={() => <List.Icon color={MD3Colors.tertiary70} icon="folder" />}
-                                        />
-    
+                                        <Fragment key={objectId}>
+                                            <TransactionListItem navigation={navigation} {...entry} />
+                                            <Divider horizontalInset />
+                                        </Fragment>
                                     )
                                 })
                             }
@@ -52,8 +44,6 @@ function Home({ navigation }: THome): JSX.Element {
                     )
                 }}
             /> : <></>}
-
-            
         </View>
     );
 }

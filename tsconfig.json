@@ -1,10 +1,14 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
-    // existing stuff
-    "baseUrl": "./" // add this line
-  },
-  "include": [
-    "pages"
-  ]
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "./*"
+      ],
+      "@pages/*": [
+        "./pages/*"
+      ]
+    }
+  }      
 }
