@@ -8,8 +8,6 @@ import type { THome, TTestData } from '@pages/types';
 import sortAndGroup from './serializers';
 import TransactionListItem from './TransactionListItem';
 import { List, Divider } from 'react-native-paper';
-import styles from './style';
-
 
 function Home({ navigation }: THome): JSX.Element {
     const [serializedData, setSerializedData] = useState<Map<string, TTestData>>();

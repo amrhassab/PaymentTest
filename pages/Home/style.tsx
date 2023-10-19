@@ -5,6 +5,12 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
+    },
+    icon: {
+      paddingLeft: 16,
+    },
+    subText: {
+      color: 'grey',
     }
   });
   

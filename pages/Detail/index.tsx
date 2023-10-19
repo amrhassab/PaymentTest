@@ -3,9 +3,9 @@ import {
     Text,
     View,
 } from 'react-native';
-
 import { TDetail1, TDetail2, TDetialError } from '@pages/types';
 import { DETAIL_PAGE_VARIANTS } from '@pages/enums';
+import styles from './style';
 
 type IDetial = TDetail1 | TDetail2 | TDetialError;
 
@@ -28,7 +28,7 @@ function Detial({ route }: IDetial): JSX.Element {
 
 
     return (
-        <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+        <View style={styles.detailContainter}>
             <Text>{getMessage()}</Text>
         </View>
     );
