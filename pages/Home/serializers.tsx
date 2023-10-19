@@ -1,4 +1,4 @@
-import type { Dictionary, TTestDataItem, TTestData } from "./types";
+import type { Dictionary, TTestDataItem, TTestData } from "types";
 import moment from 'moment';
 
 
