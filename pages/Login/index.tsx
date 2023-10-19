@@ -35,7 +35,7 @@ function Detial({ navigation }: TLogin): JSX.Element {
             <Text>{`Email: ${MOCK_EMAIL}`}</Text>
             <Text>{`Password (Case Sensitive): ${MOCK_PASSWORD}`}</Text>
 
-            <View style={{ paddingVertical: 20 }}>
+            <View style={styles.divider}>
                 <Divider />
             </View>
 
